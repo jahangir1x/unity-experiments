@@ -15,8 +15,8 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            Jump();
+        if (Input.GetMouseButtonDown(0)) {  // if left mouse is pressed
+            Jump();                         //    then jump.
         }
     }
 }
