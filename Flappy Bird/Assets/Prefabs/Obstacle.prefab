@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3560332530560342919}
   - component: {fileID: 3560332530560342917}
   - component: {fileID: 3560332530560342918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BasicShapes_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 3560332531509306606}
   - component: {fileID: 3560332531509306604}
   - component: {fileID: 3560332531509306605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BasicShapes_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

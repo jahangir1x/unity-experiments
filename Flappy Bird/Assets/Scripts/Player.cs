@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour {
     [SerializeField] private float jumpForce = 1f;
@@ -17,6 +15,12 @@ public class Player : MonoBehaviour {
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {  // if left mouse is pressed
             Jump();                         //    then jump.
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.layer == GameManager.ObstacleLayer) {  // if player collided with obstacle then show Game over message.
+            GameManager.GameOver();
         }
     }
 }
