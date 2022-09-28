@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     [SerializeField] private TMPro.TextMeshProUGUI _scoreTextMesh;         // store score UI text mesh reference
 
-    public static TMPro.TextMeshProUGUI ScoreTextMesh;   // score UI text mesh reference as static field
+    public static TMPro.TextMeshProUGUI ScoreTextMesh;   // static text mesh reference
 
     // Layers
     public static int PlayerLayer;      // store player layer id
@@ -14,10 +14,22 @@ public class GameManager : MonoBehaviour {
         PlayerLayer = LayerMask.NameToLayer("Player");
         ObstacleLayer = LayerMask.NameToLayer("Obstacle");
         ScoreTextMesh = _scoreTextMesh;
+
+        // Pause all functionality untill player starts the game
+        Time.timeScale = 0f;
+    }
+
+    public static void StartGame() {
+        Time.timeScale = 1f;
     }
 
     // Game over functionality
     public static void GameOver() {
-        Debug.Log("Game over");
+        Time.timeScale = 0f;
+        UIManager.GameOverCanvas.SetActive(true);
+    }
+
+    internal static void RetryGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
