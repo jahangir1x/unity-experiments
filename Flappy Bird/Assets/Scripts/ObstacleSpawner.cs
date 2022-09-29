@@ -5,6 +5,8 @@ public class ObstacleSpawner : MonoBehaviour {
     [SerializeField] private GameObject obstaclePrefab;
     [SerializeField] private float spawnPositionX = 1f;
     [SerializeField] private float spawnPositionRangeY = 1f;
+    [SerializeField] private float spawnRatePerSecondRangeMin = 0.5f;
+    [SerializeField] private float spawnRatePerSecondRangeMax = 0.5f;
 
     private float spawnRatePerSecond = 0.5f;
     private float elapsedTimeSinceLastSpawn = 0f;
@@ -29,7 +31,7 @@ public class ObstacleSpawner : MonoBehaviour {
                                                     Random.Range(-spawnPositionRangeY, spawnPositionRangeY),
                                                     0);   // spawn obstacle at random position.
             elapsedTimeSinceLastSpawn = 0f; // set elapsed time to 0.
-            spawnRatePerSecond = Random.Range(0.4f, 0.6f); // set spawn rate to random value.
+            spawnRatePerSecond = Random.Range(spawnRatePerSecondRangeMin, spawnRatePerSecondRangeMax); // set spawn rate to random value.
             Destroy(newObstacle, obstacleDestroyTime);  // destroy obstacle after 10 seconds.
         }
 

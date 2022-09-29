@@ -421,7 +421,9 @@ MonoBehaviour:
   obstaclePrefab: {fileID: 3560332530653275167, guid: 8510b4e22c66df84a920303452f50705,
     type: 3}
   spawnPositionX: 20
-  spawnPositionRangeY: 1
+  spawnPositionRangeY: 1.5
+  spawnRatePerSecondRangeMin: 0.3
+  spawnRatePerSecondRangeMax: 0.6
 --- !u!4 &300292298
 Transform:
   m_ObjectHideFlags: 0
