@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8021401379689774387
+--- !u!114 &-8491133508848822123
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: Retrieve 3 chests.
+    m_text: Return to Boltu.
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_headingLevel: 1
---- !u!114 &-6614477710245661109
+--- !u!114 &-4762714576247404710
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,15 +67,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
-  m_Name: BodyTextQuestContent
+  m_Script: {fileID: 11500000, guid: 732e99ba3b575dc4dad61a69b0417c96, type: 3}
+  m_Name: QuestStateQuestCondition
   m_EditorClassIdentifier: 
-  m_contentID: -1
-  m_bodyText:
-    m_text: '{#chests} / {>#chests} Chests'
+  m_requiredQuestID:
+    m_text: areaVisitAndReturnQuest
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
+  m_requiredState: 2
 --- !u!114 &-4297500533836451862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,44 +94,6 @@ MonoBehaviour:
     m_valueType: 3
     m_literalValue: 0
     m_counterIndex: 0
---- !u!114 &-997339862290876815
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c47e1bb9cdd9a474c8d3f5d555d7533a, type: 3}
-  m_Name: HeadingTextQuestContent
-  m_EditorClassIdentifier: 
-  m_contentID: -1
-  m_useQuestTitle: 1
-  m_headingText:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_headingLevel: 1
---- !u!114 &-769844174233596606
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
-  m_Name: BodyTextQuestContent
-  m_EditorClassIdentifier: 
-  m_contentID: -1
-  m_bodyText:
-    m_text: Return to Boltu
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,16 +110,16 @@ MonoBehaviour:
   m_originalAsset: {fileID: 0}
   m_fileVersion: 1
   m_id:
-    m_text: retrievechests
+    m_text: retrieveChests
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_title:
-    m_text: Retrieve Chests
+    m_text: Retrieve chests and return
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
-  m_icon: {fileID: 21300000, guid: e66300c3336a2a1429d0c6eea11e21ad, type: 3}
+  m_icon: {fileID: 0}
   m_group:
     m_text: 
     m_stringAsset: {fileID: 0}
@@ -179,7 +141,8 @@ MonoBehaviour:
     m_minConditionCount: 0
     m_numTrueConditions: 0
   m_offerConditionSet:
-    m_conditionList: []
+    m_conditionList:
+    - {fileID: -4762714576247404710}
     m_conditionCountMode: 0
     m_minConditionCount: 0
     m_numTrueConditions: 0
@@ -211,9 +174,7 @@ MonoBehaviour:
   - m_actionList: []
     m_categorizedContentList:
     - m_contentList: []
-    - m_contentList:
-      - {fileID: -997339862290876815}
-      - {fileID: 8456515408893667970}
+    - m_contentList: []
     - m_contentList: []
   - m_actionList: []
     m_categorizedContentList:
@@ -239,7 +200,7 @@ MonoBehaviour:
     m_currentValue: 0
     m_randomizeInitialValue: 0
     m_minValue: 0
-    m_maxValue: 3
+    m_maxValue: 4
     m_updateMode: 1
     m_messageEventList:
     - m_senderSpecifier: 0
@@ -314,7 +275,7 @@ MonoBehaviour:
       width: 120
       height: 48
   - m_id:
-      m_text: Get Chests
+      m_text: acquireChests
       m_stringAsset: {fileID: 0}
       m_textTable: {fileID: 0}
       m_textTableFieldID: 0
@@ -332,20 +293,19 @@ MonoBehaviour:
       m_textTable: {fileID: 0}
       m_textTableFieldID: 0
     m_stateInfoList:
-    - m_actionList:
-      - {fileID: 5342325872049200072}
-      m_categorizedContentList:
-      - m_contentList:
-        - {fileID: 1816574781257863452}
-      - m_contentList:
-        - {fileID: -8021401379689774387}
-      - m_contentList:
-        - {fileID: -6614477710245661109}
     - m_actionList: []
       m_categorizedContentList:
       - m_contentList: []
       - m_contentList: []
       - m_contentList: []
+    - m_actionList:
+      - {fileID: 3252899117425136545}
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList:
+        - {fileID: 4992819424521833658}
+      - m_contentList:
+        - {fileID: 7408583843375845238}
     - m_actionList: []
       m_categorizedContentList:
       - m_contentList: []
@@ -360,8 +320,8 @@ MonoBehaviour:
     m_childIndexList: 02000000
     m_canvasRect:
       serializedVersion: 2
-      x: 200
-      y: 88
+      x: 199
+      y: 85
       width: 120
       height: 48
   - m_id:
@@ -385,17 +345,18 @@ MonoBehaviour:
     m_stateInfoList:
     - m_actionList: []
       m_categorizedContentList:
-      - m_contentList:
-        - {fileID: 2572777366156669794}
-      - m_contentList:
-        - {fileID: 6006721383024508890}
-      - m_contentList:
-        - {fileID: -769844174233596606}
-    - m_actionList: []
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList:
+      - {fileID: 911443054004263744}
       m_categorizedContentList:
-      - m_contentList: []
-      - m_contentList: []
-      - m_contentList: []
+      - m_contentList:
+        - {fileID: 2398056428074354610}
+      - m_contentList:
+        - {fileID: -8491133508848822123}
+      - m_contentList:
+        - {fileID: 2328322786225422214}
     - m_actionList: []
       m_categorizedContentList:
       - m_contentList: []
@@ -476,11 +437,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: Collect 3 orbs.
+    m_text: Collect 4 chests and return
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
---- !u!114 &1816574781257863452
+--- !u!114 &911443054004263744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: 2056472820089013117}
+  m_contentListSerializationProxy: []
+--- !u!114 &2056472820089013117
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,11 +470,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: Retrieve those chests
+    m_text: 'Complete: Found all chests.'
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
---- !u!114 &2572777366156669794
+--- !u!114 &2328322786225422214
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -512,7 +488,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: You've found chests
+    m_text: Return to Boltu.
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &2398056428074354610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: You have found all the chests. Good job.
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -546,7 +540,7 @@ MonoBehaviour:
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_parameter:
-    m_text: retrievechests
+    m_text: retrieveChests
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -574,7 +568,7 @@ MonoBehaviour:
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_headingLevel: 1
---- !u!114 &5342325872049200072
+--- !u!114 &3252899117425136545
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -583,16 +577,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93628000f09722448bbc5366a452afb2, type: 3}
-  m_Name: ControlSpawnerQuestAction
+  m_Script: {fileID: 11500000, guid: 26c92f583e5cd314caa25bde3971b4fe, type: 3}
+  m_Name: MessageQuestAction
   m_EditorClassIdentifier: 
-  m_spawnerName:
-    m_text: Chest spawner
+  m_senderSpecifier: 2
+  m_senderID:
+    m_text: 
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
-  m_state: 0
---- !u!114 &6006721383024508890
+  m_targetSpecifier: 0
+  m_targetID:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_message:
+    m_text: Spawn
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_parameter:
+    m_text: chests
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_value:
+    m_valueType: 0
+    m_intValue: 0
+    m_stringValue: 
+--- !u!114 &4992819424521833658
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -606,7 +620,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: Return to Boltu
+    m_text: Collect 4 chests and return to Boltu
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &7408583843375845238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: '{#chests} / {>#chests} Chests found.'
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -630,7 +662,7 @@ MonoBehaviour:
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_headingLevel: 1
---- !u!114 &8456515408893667970
+--- !u!114 &7931570886161858971
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -644,7 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: Collected 3 orbs.
+    m_text: '{#chests} / {>#chests} Chests'
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
